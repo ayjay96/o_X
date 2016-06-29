@@ -57,8 +57,8 @@
 				02F782C51D22966600E3BC29 /* AppDelegate.swift */,
 				02F782C71D22966600E3BC29 /* BoardViewController.swift */,
 				02F782C91D22966600E3BC29 /* Main.storyboard */,
-				02F782CC1D22966600E3BC29 /* Assets.xcassets */,
 				02F782CE1D22966600E3BC29 /* LaunchScreen.storyboard */,
+				02F782CC1D22966600E3BC29 /* Assets.xcassets */,
 				02F782D11D22966600E3BC29 /* Info.plist */,
 			);
 			path = o_X;
@@ -286,6 +286,7 @@
 				02F782D61D22966600E3BC29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

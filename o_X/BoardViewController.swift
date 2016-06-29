@@ -9,6 +9,7 @@ class BoardViewController: UIViewController {
 
     @IBOutlet weak var newGameButton: UIButton!
     // Create additional IBOutlets here.
+    @IBOutlet weak var boardView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,15 @@ class BoardViewController: UIViewController {
         print("New game button pressed.")
     }
     
-    // Create additional IBActions here.
+    
+     // Create additional IBActions here.
+    @IBAction func buttonPressed(sender: UIButton) {
+        print("Hello World" + String(sender.tag))
+        
+        
+    }
 
 }
+
+
 
