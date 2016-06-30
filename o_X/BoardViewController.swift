@@ -6,10 +6,15 @@
 import UIKit
 
 class BoardViewController: UIViewController {
+    
 
     @IBOutlet weak var newGameButton: UIButton!
     // Create additional IBOutlets here.
     @IBOutlet weak var boardView: UIView!
+    
+    
+    var gameObject = OXGame()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +29,14 @@ class BoardViewController: UIViewController {
     
      // Create additional IBActions here.
     @IBAction func buttonPressed(sender: UIButton) {
-        print("Hello World" + String(sender.tag))
+        print("Pressed" + String(sender.tag))
         
         
     }
-
+    
+    
+    
+    
 }
 
 
