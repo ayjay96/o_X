@@ -12,6 +12,12 @@
 		02F782CB1D22966600E3BC29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F782C91D22966600E3BC29 /* Main.storyboard */; };
 		02F782CD1D22966600E3BC29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02F782CC1D22966600E3BC29 /* Assets.xcassets */; };
 		02F782D01D22966600E3BC29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02F782CE1D22966600E3BC29 /* LaunchScreen.storyboard */; };
+		2B5A95C71D25551E006D6519 /* OXGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A95C61D25551E006D6519 /* OXGameController.swift */; };
+		2B5A95C91D25C16D006D6519 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A95C81D25C16D006D6519 /* User.swift */; };
+		2B5A95CB1D25C37F006D6519 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A95CA1D25C37F006D6519 /* UserController.swift */; };
+		2B5A967D1D267EF7006D6519 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A967C1D267EF7006D6519 /* RegisterViewController.swift */; };
+		2B5A967F1D2688F3006D6519 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B5A967E1D2688F3006D6519 /* Onboarding.storyboard */; };
+		2B5A96C11D26B343006D6519 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5A96C01D26B343006D6519 /* LoginViewController.swift */; };
 		2B7A8C1A1D242EEB00685516 /* OXGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7A8C191D242EEB00685516 /* OXGame.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +29,12 @@
 		02F782CC1D22966600E3BC29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02F782CF1D22966600E3BC29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		02F782D11D22966600E3BC29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B5A95C61D25551E006D6519 /* OXGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGameController.swift; sourceTree = "<group>"; };
+		2B5A95C81D25C16D006D6519 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2B5A95CA1D25C37F006D6519 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		2B5A967C1D267EF7006D6519 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2B5A967E1D2688F3006D6519 /* Onboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		2B5A96C01D26B343006D6519 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2B7A8C191D242EEB00685516 /* OXGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OXGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,7 +71,12 @@
 				2B7A8C1B1D242F8A00685516 /* Model */,
 				02F782C51D22966600E3BC29 /* AppDelegate.swift */,
 				02F782C71D22966600E3BC29 /* BoardViewController.swift */,
+				2B5A967C1D267EF7006D6519 /* RegisterViewController.swift */,
+				2B5A96C01D26B343006D6519 /* LoginViewController.swift */,
+				2B5A95C81D25C16D006D6519 /* User.swift */,
+				2B5A95CA1D25C37F006D6519 /* UserController.swift */,
 				02F782C91D22966600E3BC29 /* Main.storyboard */,
+				2B5A967E1D2688F3006D6519 /* Onboarding.storyboard */,
 				02F782CE1D22966600E3BC29 /* LaunchScreen.storyboard */,
 				02F782CC1D22966600E3BC29 /* Assets.xcassets */,
 				02F782D11D22966600E3BC29 /* Info.plist */,
@@ -71,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				2B7A8C191D242EEB00685516 /* OXGame.swift */,
+				2B5A95C61D25551E006D6519 /* OXGameController.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -136,6 +154,7 @@
 				02F782D01D22966600E3BC29 /* LaunchScreen.storyboard in Resources */,
 				02F782CD1D22966600E3BC29 /* Assets.xcassets in Resources */,
 				02F782CB1D22966600E3BC29 /* Main.storyboard in Resources */,
+				2B5A967F1D2688F3006D6519 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,8 +165,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5A95CB1D25C37F006D6519 /* UserController.swift in Sources */,
+				2B5A95C91D25C16D006D6519 /* User.swift in Sources */,
+				2B5A967D1D267EF7006D6519 /* RegisterViewController.swift in Sources */,
 				02F782C81D22966600E3BC29 /* BoardViewController.swift in Sources */,
+				2B5A96C11D26B343006D6519 /* LoginViewController.swift in Sources */,
 				2B7A8C1A1D242EEB00685516 /* OXGame.swift in Sources */,
+				2B5A95C71D25551E006D6519 /* OXGameController.swift in Sources */,
 				02F782C61D22966600E3BC29 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

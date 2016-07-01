@@ -6,38 +6,70 @@
 import UIKit
 
 class BoardViewController: UIViewController {
-    
 
+    
+    
     @IBOutlet weak var newGameButton: UIButton!
-    // Create additional IBOutlets here.
     @IBOutlet weak var boardView: UIView!
-    
-    
-    var gameObject = OXGame()
-    
+    let myGameController = OXGameController.sharedInstance
     
     override func viewDidLoad() {
+        newGameButton.hidden = true
+        
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBAction func newGameButtonPressed(sender: UIButton) {
-        print("New game button pressed.")
-    }
-    
-    
-     // Create additional IBActions here.
-    @IBAction func buttonPressed(sender: UIButton) {
-        print("Pressed" + String(sender.tag))
-        
+        self.restartGame()
+        newGameButton.hidden = true
         
     }
     
     
+    // Create additional IBActions here.
+    @IBAction func boardButtonPressed(sender: UIButton) {
+        
+        let cellType = myGameController.playMove(sender.tag)
+        let gameState = myGameController.getCurrentGame().state()
+        
+        sender.setTitle(cellType.rawValue, forState: .Normal)
+        sender.userInteractionEnabled = false
+        
+       
+        if gameState == .Won {
+            
+            let alert = UIAlertController (title:"Game Over!" , message: "\(sender.currentTitle!) Won!" , preferredStyle: UIAlertControllerStyle.Alert)
+            let dismiss = UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action) in
+                self.newGameButton.hidden = false
+            })
+            alert.addAction(dismiss)
+            self.presentViewController(alert, animated: true, completion: nil)
+            for subview in self.boardView.subviews {
+                (subview as? UIButton)?.userInteractionEnabled = false
+            }
+            
+        } else if gameState == .Tie  {
+            let alert = UIAlertController (title:"Game Over!" , message: "Tie Game" , preferredStyle: UIAlertControllerStyle.Alert)
+            let dismiss = UIAlertAction(title: "Dismiss", style: .Cancel, handler: { (action) in
+                self.newGameButton.hidden = false
+            })
+            alert.addAction(dismiss)
+            self.presentViewController(alert, animated: true, completion: nil)
+            for subview in self.boardView.subviews {
+                (subview as? UIButton)?.userInteractionEnabled = false
+            }
+        }
+    }
     
+    func restartGame() {
+        for subview in boardView.subviews {
+            (subview as? UIButton)?.setTitle("", forState: .Normal)
+            (subview as? UIButton)?.userInteractionEnabled = true
+        }
+        myGameController.restartGame()
+    }
     
 }
-
-
 
