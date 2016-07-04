@@ -8,7 +8,7 @@ import UIKit
 class BoardViewController: UIViewController {
 
     
-    
+    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var boardView: UIView!
     let myGameController = OXGameController.sharedInstance
@@ -24,6 +24,20 @@ class BoardViewController: UIViewController {
     @IBAction func newGameButtonPressed(sender: UIButton) {
         self.restartGame()
         newGameButton.hidden = true
+        
+    }
+    
+    
+    @IBAction func logoutButtonPressed(sender: UIButton) {
+        let storyboard = UIStoryboard (name: "Onboarding" , bundle: nil)
+        
+        let viewController = storyboard.instantiateInitialViewController()
+        
+        let application = UIApplication.sharedApplication()
+        
+        let window = application.keyWindow
+        
+        window?.rootViewController = viewController
         
     }
     

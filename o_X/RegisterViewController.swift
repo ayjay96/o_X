@@ -34,6 +34,11 @@ class RegisterViewController: UIViewController {
                 self.presentViewController(alert, animated: true, completion: nil)
             }
             else {
+                let mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
+                let viewController = mainStoryboard.instantiateInitialViewController()
+                let application = UIApplication.sharedApplication()
+                let window = application.keyWindow
+                window?.rootViewController = viewController
                 
             }
         

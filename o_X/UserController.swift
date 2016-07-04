@@ -11,42 +11,51 @@ import Foundation
 class UserController {
     
     static var sharedInstance: UserController =  UserController()
-    
-    private init () {
-        
-    }
+    private init () {}
     
     func register(email email: String, password: String, onCompletion: (User?, String?) -> Void) {
         if password.characters.count < 6 {
-            onCompletion (nil , "Ya fucked up")
+            onCompletion(nil , "Ya fucked up")
+            return
         }
         
         
         for user in users {
             if email == user.email {
-                print("Not cool bro, that email is already taken")
+                onCompletion(nil , "Not cool bro, that email is already taken")
+                return
             }
-            
         }
-        var newUser: User = User ()
+        
+        let newUser = User()
         newUser.email = email
         newUser.password = password
         self.users.append(newUser)
         
-        onCompletion (newUser, nil)
+        currentUser = newUser
+        
+        onCompletion(newUser, nil)
     }
     
     func login(email email: String, password: String, onCompletion: (User?, String?) -> Void) {
-        
+        for user in users {
+            if email == user.email && password == user.password {
+                onCompletion(user, nil)
+                return
+            }
+            
+        }
     }
     
     func logout(onCompletion onCompletion: (String?) -> Void) {
-   }
+        currentUser = nil
+        return
+            
+        
+        
+    }
 
     private var users: [User] = []
-    
-    
-    
     
     var currentUser: User?
 
