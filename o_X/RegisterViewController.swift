@@ -19,10 +19,8 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
+    
     
     @IBAction func supahCoolRegisterButton(sender: UIButton) {
         UserController.sharedInstance.register(email: suapahCoolEmailField.text!, password: supahCoolPasswordField.text!, onCompletion: {(user, string) in

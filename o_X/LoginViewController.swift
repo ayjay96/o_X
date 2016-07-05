@@ -18,32 +18,27 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     @IBAction func loginButtonPressed(sender: UIButton) {
-        UserController.sharedInstance.login(email email: loginEmailField.text, password: loginPasswordField.text, onCompletion: {(User?, String) in
-            <#code#>
-        }
+        UserController.sharedInstance.login(email: loginEmailField.text!, password: loginPasswordField.text!, onCompletion: { user, error in
+            if user == nil {
+                let alert = UIAlertController (title: "UH OH" , message: error, preferredStyle: .Alert)
+                let dismiss = UIAlertAction(title: "Dismiss" , style: .Cancel, handler: nil)
+                alert.addAction(dismiss)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            else {
+                let  mainStoryboard = UIStoryboard(name: "Main" , bundle: nil)
+                let viewController = mainStoryboard.instantiateInitialViewController()
+                let application = UIApplication.sharedApplication()
+                let window = application.keyWindow
+                window?.rootViewController = viewController
+            }
+        })
+    
     }
-//    @IBAction func supahCoolRegisterButton(sender: UIButton) {
-//        UserController.sharedInstance.register(email: suapahCoolEmailField.text!, password: supahCoolPasswordField.text!, onCompletion: {(user, string) in
-//            
-//            if user == nil {
-//                let alert = UIAlertController (title: "ERROR" , message: string , preferredStyle:  UIAlertControllerStyle.Alert)
-//                let alertAction1 = UIAlertAction( title: "Dismiss" , style: .Cancel, handler: nil)
-//                alert.addAction(alertAction1)
-//                self.presentViewController(alert, animated: true, completion: nil)
-//    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+}
+
     
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
-}

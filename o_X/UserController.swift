@@ -12,6 +12,8 @@ class UserController {
     
     static var sharedInstance: UserController =  UserController()
     private init () {}
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     
     func register(email email: String, password: String, onCompletion: (User?, String?) -> Void) {
         if password.characters.count < 6 {
@@ -33,11 +35,18 @@ class UserController {
         self.users.append(newUser)
         
         currentUser = newUser
+        defaults.setObject(email, forKey: "currentUserEmail")
+        defaults.setObject(password, forKey: "currentUserPassword")
+        defaults.synchronize()
+        //saves it to the phone as a file right away
         
         onCompletion(newUser, nil)
     }
     
     func login(email email: String, password: String, onCompletion: (User?, String?) -> Void) {
+        defaults.setObject(email, forKey: "currentUserLoginEmail")
+        defaults.setObject(password, forKey: "currentUserLoginPassword")
+        defaults.synchronize()
         for user in users {
             if email == user.email && password == user.password {
                 onCompletion(user, nil)
@@ -48,6 +57,9 @@ class UserController {
     }
     
     func logout(onCompletion onCompletion: (String?) -> Void) {
+        defaults.removeObjectForKey("currentUserEmail")
+        defaults.removeObjectForKey("currentUserEmail")
+        defaults.synchronize()
         currentUser = nil
         return
             

@@ -25,7 +25,7 @@ class OXGameController {
         return currentGame
     }
     
-    func playMove(position:Int) -> CellType {
-        return self.currentGame.playMove(position)
+    func playMove(position:Int) -> OXGame.CellType {
+        return currentGame.playMove(position)
     }
 }

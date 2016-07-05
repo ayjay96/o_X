@@ -20,6 +20,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mountain" translatesAutoresizingMaskIntoConstraints="NO" id="mf4-WT-RKk">
+                                <rect key="frame" x="-5" y="64" width="611" height="536"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="611" id="Jpy-mm-EvU"/>
+                                    <constraint firstAttribute="height" constant="536" id="jIT-wG-1T6"/>
+                                    <constraint firstAttribute="width" secondItem="mf4-WT-RKk" secondAttribute="height" multiplier="611:536" id="jXy-f3-X7g"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFU-Om-73A">
                                 <rect key="frame" x="282" y="76" width="37" height="27"/>
                                 <attributedString key="attributedText">
@@ -126,7 +134,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.70694836059999999" blue="0.32158527129999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="O0t-8d-mBl" firstAttribute="top" secondItem="Got-D5-lfq" secondAttribute="bottom" id="10f-Sy-lM2"/>
                                     <constraint firstItem="BIM-1S-5bz" firstAttribute="leading" secondItem="juN-g7-lRc" secondAttribute="trailing" multiplier="1:3" id="18Q-kj-icJ"/>
@@ -194,8 +201,12 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxy-oK-aoG">
-                                <rect key="frame" x="542" y="0.0" width="48" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxy-oK-aoG">
+                                <rect key="frame" x="505" y="72" width="75" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="3q0-60-KpO"/>
+                                    <constraint firstAttribute="width" constant="75" id="lFL-k7-42n"/>
+                                </constraints>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutButtonPressed:" destination="Zcy-Xd-Whq" eventType="touchUpInside" id="D80-qN-Zbp"/>
@@ -212,13 +223,18 @@
                         <color key="backgroundColor" red="0.86559315790000002" green="0.99608634689999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="DFU-Om-73A" firstAttribute="centerX" secondItem="AHS-a3-BXG" secondAttribute="centerX" id="6lm-Ws-P1x"/>
-                            <constraint firstAttribute="trailing" secondItem="yxy-oK-aoG" secondAttribute="trailing" constant="10" id="87F-8Q-v6f"/>
+                            <constraint firstItem="mf4-WT-RKk" firstAttribute="top" secondItem="2gh-xI-bOI" secondAttribute="bottom" id="9F6-Ld-CaQ"/>
+                            <constraint firstItem="mf4-WT-RKk" firstAttribute="leading" secondItem="AHS-a3-BXG" secondAttribute="leadingMargin" constant="-25" id="GeC-hW-1Yx"/>
                             <constraint firstItem="7VC-Ks-g1m" firstAttribute="top" secondItem="2gh-xI-bOI" secondAttribute="bottom" constant="10" id="M5V-kQ-sfk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mf4-WT-RKk" secondAttribute="trailing" constant="-26" id="MZH-OM-KME"/>
                             <constraint firstItem="DFU-Om-73A" firstAttribute="centerY" secondItem="7VC-Ks-g1m" secondAttribute="centerY" id="Q6w-ZR-nTE"/>
                             <constraint firstItem="DFU-Om-73A" firstAttribute="top" secondItem="2gh-xI-bOI" secondAttribute="bottom" constant="24" id="ZkK-tL-sLd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yxy-oK-aoG" secondAttribute="trailing" id="d75-57-w0t"/>
+                            <constraint firstItem="JxG-iD-9eb" firstAttribute="top" secondItem="mf4-WT-RKk" secondAttribute="bottom" id="fEb-VH-UWB"/>
                             <constraint firstItem="7VC-Ks-g1m" firstAttribute="leading" secondItem="AHS-a3-BXG" secondAttribute="leading" constant="10" id="mib-Hc-qDV"/>
                             <constraint firstItem="juN-g7-lRc" firstAttribute="centerX" secondItem="AHS-a3-BXG" secondAttribute="centerX" id="nKM-K9-gnS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="yxy-oK-aoG" secondAttribute="trailing" constant="10" id="oCj-TP-eP1"/>
+                            <constraint firstItem="yxy-oK-aoG" firstAttribute="top" secondItem="2gh-xI-bOI" secondAttribute="bottom" constant="8" id="rvb-sw-b2a"/>
                             <constraint firstItem="juN-g7-lRc" firstAttribute="centerY" secondItem="AHS-a3-BXG" secondAttribute="centerY" constant="25" id="wq4-QZ-qTU"/>
                         </constraints>
                         <variation key="default">
@@ -257,4 +273,7 @@
             <point key="canvasLocation" x="-791" y="380"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Mountain" width="642" height="1136"/>
+    </resources>
 </document>
