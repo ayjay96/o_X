@@ -69,6 +69,16 @@ class UserController: WebService {
     }
     
     func login(email email: String, password: String, onCompletion: (User?, String?) -> Void) {
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    func login2(email email: String, password: String, onCompletion: (User?, String?) -> Void) {
         defaults.setObject(email, forKey: "currentUserLoginEmail")
         defaults.setObject(password, forKey: "currentUserLoginPassword")
         defaults.synchronize()
