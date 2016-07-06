@@ -9,8 +9,8 @@
 import Foundation
 
 class OXGame {
-    private var board = [CellType](count: 9 , repeatedValue: CellType.Empty)
-    private var startType: CellType = CellType.X
+     var board = [CellType](count: 9 , repeatedValue: CellType.Empty)
+     var startType: CellType = CellType.X
     
     func turnCount() -> Int {
         return board.filter({ $0 != .Empty }).count
@@ -68,10 +68,10 @@ class OXGame {
     func deserialiseBoard(boardString:String) -> [CellType] {
         var board = [CellType]()
         for char in boardString.characters {
-            if char == "X" {
+            if char == "x" {
                 board.append(CellType.X)
             }
-            else if char == "O" {
+            else if char == "o" {
                 board.append(CellType.O)
             }
             else {
@@ -116,7 +116,8 @@ class OXGame {
         }
         
     }
-
+    
+    
 
     enum CellType: String {
         case O = "O"
@@ -128,6 +129,8 @@ class OXGame {
         case InProgress
         case Tie
         case Won
+        case Open
+        case Abandoned
     }
 
 }

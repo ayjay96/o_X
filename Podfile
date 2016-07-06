@@ -3,8 +3,9 @@
 source 'https://github.com/CocoaPods/Specs.git'
     platform :ios, '9.0'
 target 'o_X' do
-    
+    pod 'Alamofire', '~> 3.4'
+    pod ‘SwiftyJSON’
 use_frameworks!
 # Pods for o_X
-pod 'Alamofire', '~> 3.4'
+
 end

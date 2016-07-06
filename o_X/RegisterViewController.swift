@@ -20,10 +20,8 @@ class RegisterViewController: UIViewController {
     }
 
    
-    
-    
     @IBAction func supahCoolRegisterButton(sender: UIButton) {
-        UserController.sharedInstance.register(email: suapahCoolEmailField.text!, password: supahCoolPasswordField.text!, onCompletion: {(user, string) in
+        UserController.sharedInstance.register( suapahCoolEmailField.text!, password: supahCoolPasswordField.text!, onCompletion: {(user, string) in
             
             if user == nil {
                 let alert = UIAlertController (title: "ERROR" , message: string , preferredStyle:  UIAlertControllerStyle.Alert)

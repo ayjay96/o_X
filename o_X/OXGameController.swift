@@ -11,10 +11,13 @@ import Foundation
 class OXGameController {
     static let sharedInstance = OXGameController()
     private init() {
+    var ID: Int
+    var host: String
     
     } //This prevents others from using the default '()' initializer for this class.
     
     private var currentGame = OXGame()
+    
     
     func getCurrentGame () -> OXGame {
         return currentGame
@@ -28,4 +31,9 @@ class OXGameController {
     func playMove(position:Int) -> OXGame.CellType {
         return currentGame.playMove(position)
     }
+    
+    func getGames(onCompletion onCompletion: ([OXGame]?, String?) -> Void) {
+        return onCompletion ([], "data")
+    }
+
 }

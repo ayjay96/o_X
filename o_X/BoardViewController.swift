@@ -12,13 +12,21 @@ class BoardViewController: UIViewController {
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var boardView: UIView!
     let myGameController = OXGameController.sharedInstance
+    var networkMode: Bool = false
     
     override func viewDidLoad() {
+        if networkMode == true{
+            
+        }
+        else {
         newGameButton.hidden = true
-        
+        }
         super.viewDidLoad()
+        print (OXGameController.sharedInstance.getCurrentGame().board)
         
-        // Do any additional setup after loading the view, typically from a nib.
+        updateUI()
+        
+                // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBAction func newGameButtonPressed(sender: UIButton) {
@@ -27,6 +35,17 @@ class BoardViewController: UIViewController {
         
     }
     
+    func updateUI() {
+        let board = OXGameController.sharedInstance.getCurrentGame().board
+        for subview in boardView.subviews {
+            if let button = subview as? UIButton {
+                button.setTitle(board[button.tag].rawValue, forState: .Normal)
+            }
+        }
+        
+        
+    }
+
     
     @IBAction func logoutButtonPressed(sender: UIButton) {
         let storyboard = UIStoryboard (name: "Onboarding" , bundle: nil)
@@ -84,6 +103,8 @@ class BoardViewController: UIViewController {
         }
         myGameController.restartGame()
     }
+    
+    
     
 }
 
