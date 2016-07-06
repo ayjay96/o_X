@@ -119,7 +119,7 @@ class UserController: WebService {
                 onCompletion(user,nil)
             }   else    {
                 //the web service to create a user failed. Lets extract the error message to be displayed
-                let errorMessage = json["errors"]["full_messages"][0].stringValue
+                let errorMessage = json["errors"][0].stringValue
                 //execute the closure in the ViewController
                 onCompletion(nil,errorMessage)
             }
