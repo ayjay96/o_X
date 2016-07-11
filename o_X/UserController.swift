@@ -129,21 +129,7 @@ class UserController: WebService {
         
         
     }
-    
-    
-    
-    func login2(email email: String, password: String, onCompletion: (User?, String?) -> Void) {
-        defaults.setObject(email, forKey: "currentUserLoginEmail")
-        defaults.setObject(password, forKey: "currentUserLoginPassword")
-        defaults.synchronize()
-        for user in users {
-            if email == user.email && password == user.password {
-                onCompletion(user, nil)
-                return
-            }
-            
-        }
-    }
+
     
     func logout(onCompletion onCompletion: (String?) -> Void) {
         defaults.removeObjectForKey("currentUserEmail")

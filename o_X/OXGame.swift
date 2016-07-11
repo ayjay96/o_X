@@ -11,7 +11,8 @@ import Foundation
 class OXGame {
      var board = [CellType](count: 9 , repeatedValue: CellType.Empty)
      var startType: CellType = CellType.X
-    
+    var ID:Int = 0
+    var host = "host"
     func turnCount() -> Int {
         return board.filter({ $0 != .Empty }).count
     }

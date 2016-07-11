@@ -8,6 +8,7 @@ import UIKit
 class BoardViewController: UIViewController {
 
     
+    @IBOutlet weak var cancelGame: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var newGameButton: UIButton!
     @IBOutlet weak var boardView: UIView!
@@ -47,6 +48,23 @@ class BoardViewController: UIViewController {
     }
 
     
+    @IBAction func cancelButtonPressed(sender: UIButton) {
+    
+            OXGameController.sharedInstance.cancelGame(OXGameController.sharedInstance.getCurrentGame().ID) { (error) in
+            if error == nil{
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+            else
+            {
+                let alert = UIAlertController (title: "ERROR" , message: "Something went wrong (idk what though)", preferredStyle:  UIAlertControllerStyle.Alert)
+                let alertAction1 = UIAlertAction( title: "Dismiss" , style: .Cancel, handler: nil)
+                alert.addAction(alertAction1)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+            
+        }
+        
+    }
     @IBAction func logoutButtonPressed(sender: UIButton) {
         let storyboard = UIStoryboard (name: "Onboarding" , bundle: nil)
         
@@ -60,11 +78,37 @@ class BoardViewController: UIViewController {
         
     }
     
+    @IBAction func refreshButtonPressed(sender: UIButton) {
+        OXGameController.sharedInstance.viewGame(OXGameController.sharedInstance.getCurrentGame().ID) { (error) in
+            if error == nil{
+                self.updateUI()
+                OXGame.whoseTurn(self: OXGame)
+            }
+            else {
+                let alert = UIAlertController (title: "ERROR" , message: "Could not Resfresh Move", preferredStyle:  UIAlertControllerStyle.Alert)
+                let alertAction1 = UIAlertAction( title: "Dismiss" , style: .Cancel, handler: nil)
+                alert.addAction(alertAction1)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+        
+    }
     
     // Create additional IBActions here.
     @IBAction func boardButtonPressed(sender: UIButton) {
         
         let cellType = myGameController.playMove(sender.tag)
+        OXGameController.sharedInstance.playMove(OXGameController.sharedInstance.getCurrentGame().ID) { (move) in
+            if move == nil{
+                print("success")
+            }
+            else {
+                let alert = UIAlertController (title: "ERROR" , message: "Invalid Move", preferredStyle:  UIAlertControllerStyle.Alert)
+                let alertAction1 = UIAlertAction( title: "Dismiss" , style: .Cancel, handler: nil)
+                alert.addAction(alertAction1)
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
         let gameState = myGameController.getCurrentGame().state()
         
         sender.setTitle(cellType.rawValue, forState: .Normal)
@@ -103,6 +147,8 @@ class BoardViewController: UIViewController {
         }
         myGameController.restartGame()
     }
+    
+    
     
     
     

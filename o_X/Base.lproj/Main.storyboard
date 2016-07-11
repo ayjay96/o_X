@@ -320,9 +320,15 @@
                                 <action selector="networkBackButtonPressed:" destination="CcT-bp-HJ3" id="RLk-hC-7Gd"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="+" id="q5I-1v-W7g">
+                            <connections>
+                                <action selector="newNetworkGame:" destination="CcT-bp-HJ3" id="Ssl-Sb-7hv"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="networkBackButton" destination="mc1-KI-Zrw" id="wA5-sj-vZ5"/>
+                        <outlet property="newGameButton" destination="q5I-1v-W7g" id="LCy-Nn-nFF"/>
                         <segue destination="Qjk-sM-9xW" kind="show" identifier="segue" id="btN-qx-Mez"/>
                     </connections>
                 </tableViewController>
@@ -594,15 +600,41 @@
                                 <color key="textColor" red="0.67548340259999995" green="0.64927106310000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvE-KM-Ztq">
+                                <rect key="frame" x="20" y="698" width="92" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WUq-S5-RSu"/>
+                                    <constraint firstAttribute="width" constant="92" id="wTS-mA-Ork"/>
+                                </constraints>
+                                <state key="normal" title="Cancel Game"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="Qjk-sM-9xW" eventType="touchUpInside" id="c6n-AK-ezu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tal-X8-hnY">
+                                <rect key="frame" x="336" y="691" width="53" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="bdy-hg-gBp"/>
+                                    <constraint firstAttribute="height" constant="30" id="kgF-BW-q8t"/>
+                                </constraints>
+                                <state key="normal" title="Refresh"/>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="Qjk-sM-9xW" eventType="touchUpInside" id="uhi-BD-z4t"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.86559315790000002" green="0.99608634689999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="kaz-Pm-bIh" secondAttribute="trailing" id="3Jy-hj-D59"/>
                             <constraint firstItem="VDF-W2-nxG" firstAttribute="centerY" secondItem="3rG-6s-bEg" secondAttribute="centerY" constant="25" id="9aL-UX-5Hp"/>
+                            <constraint firstItem="thl-QN-vjB" firstAttribute="top" secondItem="Tal-X8-hnY" secondAttribute="bottom" constant="15" id="DpG-yb-CMM"/>
+                            <constraint firstItem="thl-QN-vjB" firstAttribute="top" secondItem="KvE-KM-Ztq" secondAttribute="bottom" constant="8" id="EAP-K2-KF9"/>
                             <constraint firstItem="VDF-W2-nxG" firstAttribute="centerX" secondItem="3rG-6s-bEg" secondAttribute="centerX" id="KJq-NY-tQB"/>
                             <constraint firstItem="kaz-Pm-bIh" firstAttribute="top" secondItem="PEG-dC-Cfi" secondAttribute="bottom" constant="20" id="OWA-3m-j2c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DHg-jw-str" secondAttribute="trailing" constant="-20" id="Q6c-yc-gZ0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Tal-X8-hnY" secondAttribute="trailing" constant="9" id="RiG-U3-A48"/>
                             <constraint firstItem="DHg-jw-str" firstAttribute="centerY" secondItem="3rG-6s-bEg" secondAttribute="centerY" id="YWl-sd-ToJ"/>
+                            <constraint firstItem="KvE-KM-Ztq" firstAttribute="leading" secondItem="3rG-6s-bEg" secondAttribute="leading" constant="20" id="ayv-aE-9E0"/>
                             <constraint firstItem="DHg-jw-str" firstAttribute="top" secondItem="PEG-dC-Cfi" secondAttribute="bottom" constant="36" id="bo3-tS-jfI"/>
                             <constraint firstItem="DHg-jw-str" firstAttribute="centerX" secondItem="3rG-6s-bEg" secondAttribute="centerX" id="dtM-XS-VNt"/>
                             <constraint firstItem="elY-B9-7oU" firstAttribute="top" secondItem="PEG-dC-Cfi" secondAttribute="bottom" constant="20" id="fc7-T5-Zkq"/>

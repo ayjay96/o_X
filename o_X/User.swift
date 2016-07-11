@@ -19,10 +19,10 @@ import Foundation
         }
         
         init (email:String,password: String, client: String, token: String) {
-            self.email = "email"
-            self.password = "password"
-            self.client = "client"
-            self.token = "token"
+            self.email = email
+            self.password = password
+            self.client = client
+            self.token = token
         }
         
         

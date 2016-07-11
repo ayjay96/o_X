@@ -10,19 +10,63 @@ import UIKit
 
 class NetworkGamesTableViewController: UITableViewController {
     @IBOutlet weak var networkBackButton: UIBarButtonItem!
+    
+    @IBOutlet weak var newGameButton: UIBarButtonItem!
+     var tableArray =  [OXGame]()
 
     @IBAction func networkBackButtonPressed(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+   
+        
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        //Give me the fucking game list you hoe
+        //the game list is in the closure parameter
+        OXGameController.sharedInstance.getGameList{ (games, error) in
+            if error == nil {
+                print("here are games")
+                print(games!)
+                self.tableArray = games!
+                self.tableView.reloadData()
+            }
+            else {
+                
+            }
+            
+        }
+       
+    }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
+  
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    @IBAction func newNetworkGame(sender: UIBarButtonItem) {
+    
+        OXGameController.sharedInstance.createGame(OXGameController.sharedInstance.getCurrentGame().ID) { (game, error) in
+            if error == nil {
+                 self.performSegueWithIdentifier("segue", sender: self)
+            }
+            else
+            {
+                let alert = UIAlertController (title: "ERROR" , message: "Could not create game" , preferredStyle:  UIAlertControllerStyle.Alert)
+                let alertAction1 = UIAlertAction( title: "Dismiss" , style: .Cancel, handler: nil)
+                alert.addAction(alertAction1)
+                self.presentViewController(alert, animated: true, completion: nil)
+            
+ 
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,11 +87,11 @@ class NetworkGamesTableViewController: UITableViewController {
        
     }
 
-    var tableArray = ["1" , "2" , "3" , "4" , "5"]
+   
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath)
-        cell.textLabel?.text = tableArray[indexPath.row]
+        cell.textLabel?.text = "ID: " + String(tableArray[indexPath.row].ID) + "Host: " + tableArray[indexPath.row].host
         return cell
 
         // Configure the cell...
@@ -58,12 +102,30 @@ class NetworkGamesTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("segue", sender: self)
+        OXGameController.sharedInstance.joinGame(tableArray[indexPath.row].ID, onCompletion: { (game, error)  in
+            if error == nil {
+                self.performSegueWithIdentifier("segue", sender: self)
+            }
+                
+                else {
+                    let alert = UIAlertController (title: "ERROR" , message: error , preferredStyle:  UIAlertControllerStyle.Alert)
+                    let alertAction1 = UIAlertAction( title: "Dismiss" , style: .Cancel, handler: nil)
+                    alert.addAction(alertAction1)
+                    self.presentViewController(alert, animated: true, completion: nil)
+
+
+            }
+        })
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let road = segue.destinationViewController as? BoardViewController
         road?.networkMode = true
     }
+    
+    
+    
+    
     
 
     /*
